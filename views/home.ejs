@@ -77,7 +77,6 @@
 
     document.getElementById('apple-login-btn').addEventListener('click', () => {
       music.authorize().then(musicUserToken => {
-        console.log(`Authorized, music-user-token: ${musicUserToken}`);
         document.getElementById('userToken').value = musicUserToken;
         document.getElementById('appleMusicUser').submit();
       });
