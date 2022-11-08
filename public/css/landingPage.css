@@ -1,0 +1,95 @@
+body {
+  font-family: "Montserrat";
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat";
+  font-weight: bold;
+}
+
+p {
+  color: #8f8f8f;
+}
+
+/* Headings */
+
+.big-heading {
+  font-family: "Montserrat";
+  font-size: 160%;
+  line-height: 1.0;
+}
+
+
+/* Containers */
+
+.container-fluid{
+  padding: 7% 15%;
+}
+
+/* Sections */
+
+.colored-section {
+  background: url("../images/M3.gif") no-repeat center;
+  color: #fff;
+  background-size: cover;
+  padding-bottom: 25%;
+}
+
+.white-section {
+  background: url("../images/home-back1.png") center;
+}
+
+/* Buttons */
+
+.download-button {
+  margin: 5% 3% 5% 0;
+
+}
+
+.download-button:hover {
+  background-color: pink;
+  color: black;
+  border-color: pink;
+}
+
+/* Title Section */
+
+#title .container-fluid {
+  padding: 3% 15% 7%;
+  text-align: center;
+}
+
+/*spacer */
+
+.spacer {
+  height: 350px;
+
+}
+
+.move-left {
+  padding-left: 6%;
+}
+
+/* Features Section */
+
+#features {
+  position: relative;
+}
+
+.feature-title {
+  font-size: 120%;
+}
+
+.feature-box {
+  padding: 4.5%;
+}
+
+.icon {
+  color: #add8e6;
+  margin-bottom: 1rem;
+}
+
+.icon:hover {
+  color: pink;
+}

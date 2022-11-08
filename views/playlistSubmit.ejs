@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submission - Music Bridge</title>
+  <link rel="icon" href="images/logo.png">
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/submit.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+<%- include("navBar") %>
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="images/playlistSubmit.png" alt="playlist image">
+    </div>
+  </div>
+</div>
+<form class="blue-background converter" action="/submit" method="post" autocomplete="off">
+  <input type="text" class="playlistLink" name="link" placeholder="Link">
+  <br>
+  <br>
+<select class="custom-select" name="moods" id="moods">
+  <option selected disabled>Choose a mood</option>
+  <option value="Happy">Happy</option>
+  <option value="Sad">Sad</option>
+  <option value="Chill">Chill</option>
+  <option value="Shower">Shower</option>
+  <option value="Workout">Workout</option>
+  <option value="HeartBreak">Heart Break</option>
+</select>
+  <br>
+  <br>
+<select class="custom-select" name="genres" id="genres">
+  <option selected disabled>Choose a genre</option>
+  <option value="Mix">Mix</option>
+  <option value="Happy">Pop</option>
+  <option value="Sad">R&B</option>
+  <option value="HipHop">Hip Hop</option>
+  <option value="Alternative">Alternative</option>
+  <option value="Jazz">Jazz</option>
+  <option value="Electronic">Electronic</option>
+
+</select>
+  <br>
+  <br>
+  <button class="btn btn-lg btn-outline-info convertButton" type="submit">Submit</button>
+</form>
+
+
+<%- include("footer") -%>

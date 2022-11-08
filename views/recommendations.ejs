@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recommendations - Music Bridge</title>
+  <link rel="icon" href="images/logo.png">
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/recommended.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<%- include("navBar") -%>
+  <!-- Grid -->
+
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="images/Recommendations.png" alt="recommend image">
+      </div>
+    </div>
+  </div>
+  <br>
+      <div class="switchContainer">
+        <i class="fab fa-spotify fa-2x"></i>
+        <label class="switch">
+          <input id="theMainSwitch" type="checkbox" onclick="switch1()">
+          <span class="slider round"></span>
+        </label>
+        <i class="fab fa-apple fa-2x"></i>
+      </div>
+
+  <!-- <form class="makeplay" action="/recommendations" method="post">
+    <input type="hidden" name="songs" value="">
+  </form> -->
+
+  <div id="spotify" class="album py-5 bg-light">
+
+    <div class="container">
+      <div class="row">
+
+        <%  ssongs.forEach(function(song){ %>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm blue-border">
+            <a href="<%=song.url%>" target="_blank"><img class="card-img-top" src="<%= song.image %>"></a>
+            <div class="card-body">
+              <p class="card-text"><%= song.name %></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted"><%= song.artists %></small>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div id="apple" class="album py-5 bg-light invisible">
+    <div class="container">
+
+      <div class="row">
+
+        <%  asongs.forEach(function(song){ %>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm blue-border">
+            <a href="<%=song.url%>" target="_blank"><img class="card-img-top" src="<%= song.image %>"></a>
+            <div class="card-body">
+              <p class="card-text"><%= song.name %></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted"><%= song.artists %></small>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+
+
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript">
+let spotify = document.getElementById('spotify');
+let apple = document.getElementById('apple');
+function switch1(){
+  let uhm = document.getElementById('theMainSwitch').checked;
+  console.log(uhm);
+
+  if(uhm === "true") {
+    apple.classList.toggle("invisible");
+    spotify.classList.toggle("invisible");
+  }
+  else {
+    spotify.classList.toggle("invisible");
+    apple.classList.toggle("invisible");
+  }
+};
+
+</script>
+</main>
+<%- include("footer") -%>

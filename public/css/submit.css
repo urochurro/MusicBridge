@@ -1,0 +1,17 @@
+.playlistLink:focus{
+  border-bottom: 2px solid pink;
+}
+
+.custom-select {
+  width: 170px;
+}
+
+.convertButton {
+  border-color: pink;
+  color: #5f5f5f;
+}
+
+.convertButton:hover {
+  border-color: pink;
+  background-color: pink;
+}
