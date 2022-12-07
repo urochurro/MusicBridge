@@ -31,10 +31,22 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-mongoose.connect(process.env.DATABASE_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.DATABASE_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    // console.log('MongoDB Connected: ${conn.connection.host}');
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+};
+// mongoose.connect(process.env.DATABASE_URL, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// });
 mongoose.set("useCreateIndex", true);
 
 const playlistsSchema = new mongoose.Schema({
@@ -653,6 +665,11 @@ if (port == null || port == "") {
   port = 8000;
 }
 
-app.listen(port, function() {
-  console.log('Server started successfully');
+// app.listen(port, function() {
+//   console.log('Server started successfully');
+// });
+connectDB().then(() => {
+  app.listen(port, () => {
+    console.log("listening for requests");
+  });
 });
