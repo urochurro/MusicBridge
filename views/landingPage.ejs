@@ -69,23 +69,27 @@
 
 
 <!-- Bootstrap -->
-<script src="https://js-cdn.music.apple.com/musickit/v1/musickit.js"></script>
+<script src="https://js-cdn.music.apple.com/musickit/v3/musickit.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
   // listen for MusicKit Loaded callback
-  document.addEventListener('musickitloaded', () => {
-    // MusicKit global is now defined
-    const music = MusicKit.configure({
-      developerToken: '<%=devKey%>',
-      app: {
-        name: 'AppleMusicKitExample',
-        build: '1978.4.1'
-      }
-    });
-
+  document.addEventListener('musickitloaded',  async function () {
+    try {
+      await MusicKit.configure({
+        developerToken: '<%=devKey%>',
+        app: {
+          name: 'MusicBridge',
+          build: '1978.4.1'
+        },
+      });
+    } catch (err) {
+      // Handle configuration error
+      console.log(err);
+    }
+    const music = MusicKit.getInstance();
     document.getElementById('apple-login-btn').addEventListener('click', () => {
       music.authorize().then(musicUserToken => {
         // console.log(`Authorized, music-user-token: ${musicUserToken}`);
