@@ -33,11 +33,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.DATABASE_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    // console.log('MongoDB Connected: ${conn.connection.host}');
+    const conn = await mongoose.connect(process.env.DATABASE_URL);
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+
   } catch (error) {
     console.log(error);
   }
