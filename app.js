@@ -83,7 +83,7 @@ passport.use(
   new SpotifyStrategy({
       clientID: client_id,
       clientSecret: client_secret,
-      callbackURL: 'https://www.musicbridge.live/auth/spotify/callback/'
+      callbackURL: 'https://musicbridge.live/auth/spotify/callback/'
     },
     function(accessToken, refreshToken, expires_in, profile, done) {
       countryOfUser = profile.country;
