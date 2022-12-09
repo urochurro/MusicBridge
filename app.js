@@ -33,9 +33,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.DATABASE_URL);
+    const conn = await mongoose.connect(process.env.DATABASE_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     console.log(`MongoDB Connected: ${conn.connection.host}`);
-
   } catch (error) {
     console.log(error);
   }
@@ -60,7 +62,7 @@ const Playlist = new mongoose.model("Playlist", playlistsSchema);
 
 var client_id = process.env.CLIENT_ID; // My client id
 var client_secret = process.env.CLIENT_SECRET; // My secret
-var redirect_uri = 'https://www.musicbridge.live/auth/spotify/callback/' //http://localhost:8888/auth/spotify/callback'; My redirect uri
+var redirect_uri = 'https://musicbridge.live/auth/spotify/callback/' //http://localhost:8888/auth/spotify/callback'; My redirect uri
 var countryOfUser = '';
 
 passport.serializeUser(function(user, done) {
