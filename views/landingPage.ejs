@@ -90,12 +90,17 @@
       console.log(err);
     }
     const music = MusicKit.getInstance();
-    document.getElementById('apple-login-btn').addEventListener('click', () => {
-      music.authorize().then(musicUserToken => {
-        // console.log(`Authorized, music-user-token: ${musicUserToken}`);
-        document.getElementById('userToken').value = musicUserToken;
-        document.getElementById('appleMusicUser').submit();
-      });
+    document.getElementById('apple-login-btn').addEventListener('click', async function () {
+      try {
+        await music.authorize().then(musicUserToken => {
+          console.log(`Authorized, music-user-token: ${musicUserToken}`);
+          document.getElementById('userToken').value = musicUserToken;
+          document.getElementById('appleMusicUser').submit();
+        });
+      } catch (err) {
+        // Handle authorization error
+        console.log(err);
+      }
     });
   });
 </script>
