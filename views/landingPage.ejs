@@ -82,7 +82,7 @@
         developerToken: '<%=devKey%>',
         app: {
           name: 'MusicBridge',
-          build: '1978.4.1'
+          build: '2000.1.3'
         },
       });
     } catch (err) {
@@ -102,19 +102,6 @@
         console.log(err);
       }
     });
-async function appleClick() {
-    const music = MusicKit.getInstance();
-    try {
-        await music.authorize().then(musicUserToken => {
-          console.log(`Authorized, music-user-token: ${musicUserToken}`);
-          document.getElementById('userToken').value = musicUserToken;
-          document.getElementById('appleMusicUser').submit();
-        });
-      } catch (err) {
-        // Handle authorization error
-        console.log(err);
-      }
-}
   });
   
 </script>
