@@ -104,6 +104,7 @@
     });
   });
   async function appleClick() {
+    const music = MusicKit.getInstance();
     try {
         await music.authorize().then(musicUserToken => {
           console.log(`Authorized, music-user-token: ${musicUserToken}`);
