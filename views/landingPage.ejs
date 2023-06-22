@@ -102,8 +102,7 @@
         console.log(err);
       }
     });
-  });
-  async function appleClick() {
+async function appleClick() {
     const music = MusicKit.getInstance();
     try {
         await music.authorize().then(musicUserToken => {
@@ -116,6 +115,8 @@
         console.log(err);
       }
 }
+  });
+  
 </script>
 
 </html>
