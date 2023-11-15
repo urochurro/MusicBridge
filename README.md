@@ -150,7 +150,7 @@ node app.js
 ## 📄 License
 
 
-This project is protected under the [SELECT-A-LICENSE](https://choosealicense.com/licenses) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/) file.
+This project is protected under the [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/) License. For more details, refer to the [LICENSE](LICENSE) file.
 
 
 [**Return**](#Top)
