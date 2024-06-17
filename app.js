@@ -33,10 +33,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.DATABASE_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    const conn = await mongoose.connect(process.env.DATABASE_URL);
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.log(error);
@@ -46,7 +43,7 @@ const connectDB = async () => {
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true
 // });
-mongoose.set("useCreateIndex", true);
+// mongoose.set("useCreateIndex", true);
 
 const playlistsSchema = new mongoose.Schema({
   name: String,
